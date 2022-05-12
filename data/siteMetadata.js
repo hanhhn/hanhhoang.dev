@@ -14,17 +14,17 @@ const siteMetadata = {
   github: 'https://github.com/hanhhn',
   twitter: 'https://twitter.com/0xhanh',
   facebook: 'https://facebook.com/0xhanh',
-  youtube: 'https://youtube.com',
+  youtube: 'https://www.youtube.com/channel/UCNg8vGtn4-0-K4mA-yotDrA',
   linkedin: 'https://www.linkedin.com/hoangngochanh',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
     // supports plausible, simpleAnalytics, umami or googleAnalytics
-    plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
+    plausibleDataDomain: 'hanhhoang.dev', // e.g. tailwind-nextjs-starter-blog.vercel.app
     simpleAnalytics: false, // true or false
-    umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
-    googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
+    umamiWebsiteId: '3559956268', // e.g. 123e4567-e89b-12d3-a456-426614174000
+    googleAnalyticsId: 'G-64CF9N3QSN', // e.g. UA-000000-2 or G-XXXXXXX
   },
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus
