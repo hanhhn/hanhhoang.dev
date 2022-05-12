@@ -1,4 +1,4 @@
-# My personal site at [https://hanhhoang.dev](https://hanhhoang.dev)
+# My blog [https://hanhhoang.dev](https://hanhhoang.dev)
 
 ## Motivation
 
