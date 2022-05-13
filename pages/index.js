@@ -3,30 +3,53 @@ import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
+import { getAllTags } from '@/lib/tags'
 import formatDate from '@/lib/utils/formatDate'
-
+import kebabCase from '@/lib/utils/kebabCase'
 import NewsletterForm from '@/components/NewsletterForm'
 
 const MAX_DISPLAY = 5
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog')
+  const tags = await getAllTags('blog')
 
-  return { props: { posts } }
+  return { props: { posts, tags } }
 }
 
-export default function Home({ posts }) {
+export default function Home({ posts, tags }) {
+  let sortedTags = []
+  if (tags) {
+    sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a])
+  }
+
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Hanh Hoang
-          </h1>
+          <h3 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl sm:leading-10 md:text-4xl md:leading-14">
+            Hanh Hoang - Blockchain engineer
+          </h3>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             {siteMetadata.description}
           </p>
+          <div className="flex flex-wrap">
+            {Object.keys(sortedTags).length === 0 && siteMetadata.description}
+            {sortedTags.map((t) => {
+              return (
+                <div key={t} className="mt-2 mb-2 mr-5">
+                  <Tag text={t} />
+                  <Link
+                    href={`/tags/${kebabCase(t)}`}
+                    className="-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300"
+                  >
+                    {` (${tags[t]})`}
+                  </Link>
+                </div>
+              )
+            })}
+          </div>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}

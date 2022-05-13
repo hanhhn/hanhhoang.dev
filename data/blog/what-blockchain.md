@@ -1,9 +1,9 @@
 ---
-title: 'Markdown Guide'
-date: '2019-10-11'
-tags: ['github', 'guide']
+title: 'Blockchain là gì?'
+date: '2022-05-15'
+tags: ['blockchain', 'web3', 'dApp', 'Cryptos']
 draft: false
-summary: 'Markdown cheatsheet for all your blogging needs - headers, lists, images, tables and more! An illustrated guide based on GitHub Flavored Markdown.'
+summary: 'Blockchain là gì? Blockchain góp phần vào sự thay đổi thế giới như thế nào? Đừng nhầm lẫn về blockchain và crypto currency.'
 ---
 
 # Introduction

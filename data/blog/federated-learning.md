@@ -1,9 +1,9 @@
 ---
-title: Sample .md file
-date: '2016-03-08'
-tags: ['markdown', 'code', 'features']
+title: Federated Learning?
+date: '2022-05-13'
+tags: ['AI', 'Federated learning', 'ML']
 draft: false
-summary: Example of a markdown file with code blocks and syntax highlighting
+summary: 'Federated learning là gì? Thế hệ tiếp theo của AI'
 ---
 
 A sample post with markdown.
