@@ -1,7 +1,7 @@
 const siteMetadata = {
   title: 'Hanh Hoang | Learning is sharing',
   author: 'Hanh Hoang',
-  headerTitle: 'DEV',
+  headerTitle: 'Hanh Hoang',
   description: 'A blog to learning and sharing',
   language: 'en-us',
   theme: 'system', // system, dark or light
