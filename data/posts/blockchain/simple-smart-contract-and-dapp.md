@@ -23,8 +23,6 @@ Bài viết không đi sau vào giới thiệu các lib mà chỉ hướng dẫn
 
 > Hardhat - Tool build solidity trên js
 
-**let start**
-
 ## Tạo Smart Contract (step by step)
 
 ### Step 1 - Tạo app trên Alchemy
@@ -32,14 +30,26 @@ Bài viết không đi sau vào giới thiệu các lib mà chỉ hướng dẫn
 `Lưu ý`: Nếu không sử dụng Alchemy thì có thể sử dụng third party khác cũng cho phép tương tác với network. Tìm hiểu thên theo [link](https://docs.ethers.io/v5/api-keys/)
 
 - Đăng ký theo link sau [https://www.alchemy.com](https://alchemy.com/?r=TM0NjkyMzg3MTYwN)
-- Create app
-  ![Tạo app](https://github.com/hanhhn/hanhhoang.dev/blob/master/public/images/simple-smart-contract-and-dapp/1.png)
+- Create app - Chọn network `Goerli` nhé
+  ![Tạo app](https://raw.githubusercontent.com/hanhhn/hanhhoang.dev/master/public/images/simple-smart-contract-and-dapp/1.png)
+- Lấy api key - Api key trong hình chỉ là hàng test
+  ![Lấy api key](https://raw.githubusercontent.com/hanhhn/hanhhoang.dev/master/public/images/simple-smart-contract-and-dapp/2.png)
 
-  ![Lấy api key](https://github.com/hanhhn/hanhhoang.dev/blob/master/public/images/simple-smart-contract-and-dapp/1.png)
+`Goerli` trong lúc viết tut này thì chỉ có testnet `Goerli` là đang run, ko sử dụng testnet này thì cũng có thể sử dụng 1 testnet khác
 
 ### Step 2 - Tạo một wallet ở metamask
 
+`Lưu y` Ai chưa có hay đã có rồi cũng nên tạo 1 Wallet mới để test nhé, tránh dùng ví chính lộ private key
+Tạo wallet dễ ợt à, anh/em tự tạo nhé. Khi tạo xong nhớ switch qua testnet `Goerli`
+
+![switch qua testnet Goerli](https://raw.githubusercontent.com/hanhhn/hanhhoang.dev/master/public/images/simple-smart-contract-and-dapp/3.png)
+
 ### Step 3 - Kiếm ETH cho test account vừa tạo
+
+Có nhiều trang kiếm ETH cho testnet lắm. Các bạn google phát là ra. Sau đó chuyển eth cho ví test
+Mình xài web https://goerlifaucet.com/ để get ETH, Login vào thì get dc nhiều ETH hơn.
+
+![get eth](https://raw.githubusercontent.com/hanhhn/hanhhoang.dev/master/public/images/simple-smart-contract-and-dapp/4.png)
 
 ### Step 4 - Coding simple smart contract
 
