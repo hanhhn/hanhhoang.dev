@@ -136,7 +136,11 @@ contract HelloKitty {
 }
 ```
 
-Easy phải không =)) 5. compile smart contract
+Easy phải không =))
+
+### Step 5 - Deploy smart contract lên testnet
+
+1. compile smart contract
 
 ```
 npx hardhat compile
@@ -166,7 +170,7 @@ main().catch((error) => {
 });
 ```
 
-6. Deploy smart contract
+2. Deploy smart contract
 
 ```
 npx hardhat run scripts/deploy.js --network goerli
@@ -180,6 +184,6 @@ Xong rồi vào scan testnet để kiểm tra xem với address trã về thì �
 
 ![0x88cb4b51E80bCB85CA1eA23E684372E878a1EbFd](https://raw.githubusercontent.com/hanhhn/hanhhoang.dev/master/public/images/simple-smart-contract-and-dapp/5.png)
 
-### Step 5 - Deploy smart contract lên testnet
-
 ## Coding dApp - Reactjs (step by step)
+
+tobe continue..
