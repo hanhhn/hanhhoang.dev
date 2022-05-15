@@ -27,14 +27,14 @@ export default function Home({ posts, tags }) {
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-          <h3 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl sm:leading-10 md:text-4xl md:leading-14">
-            Blockchain engineer
-          </h3>
+        <div className="space-y-2 pt-6 pb-8 text-center md:space-y-5">
+          <p className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl sm:leading-10 md:text-4xl md:leading-14">
+            Hanh Hoang
+          </p>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             {siteMetadata.description}
           </p>
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap items-center justify-center">
             {Object.keys(sortedTags).length === 0 && siteMetadata.description}
             {sortedTags.map((t) => {
               return (
