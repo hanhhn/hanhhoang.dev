@@ -11,6 +11,7 @@ summary: 'Easy way to touch hangfire!!!! About hangfire, install, intgate dashbo
 > An easy way to perform background processing in .NET and .NET Core applications. No Windows Service or separate process required. Backed by persistent storage. Open and free for commercial use.
 
 Hangfire là 1 open source framework trên dotNET cho phép bạn:
+
 1. Recurring Tasks
 
 Recurring job processing has never been easier
@@ -30,7 +31,7 @@ Job will execute for a specified time
 
 1. LGPL v3 License
 2. Commercial Licenses
-3. Third-party Notices 
+3. Third-party Notices
 
 ## Nuget
 
@@ -43,7 +44,6 @@ Job will execute for a specified time
 7. Hangfire.SqlServer
 8. Hangfire.SqlServer.Msmq
 
-
 ## Backed by Persistent Storage
 
 1. SQL Server
@@ -55,4 +55,23 @@ Job will execute for a specified time
 1. .NET Framework 4.5 or later
 2. .NET Core 1.0 or later
 
-## Install 
+## Install
+
+```
+<ItemGroup>
+  <PackageReference Include="Microsoft.AspNetCore.App" />
+  <PackageReference Include="Hangfire.Core" Version="__*" />
+  <PackageReference Include="Hangfire.SqlServer" Version="__.*" />
+  <PackageReference Include="Hangfire.AspNetCore" Version="__.*" />
+</ItemGroup>
+```
+
+## Dependency Injection
+
+## Hangfire Dashboard and Authen
+
+## Background Methods
+
+1. BackgroundJob.Enqueue
+2. BackgroundJob.Schedule
+3. RecurringJob.AddOrUpdate
