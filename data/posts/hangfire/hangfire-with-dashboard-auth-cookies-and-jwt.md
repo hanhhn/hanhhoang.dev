@@ -67,7 +67,6 @@ Job will execute for a specified time
 ```
 
 ## Dependency Injection
-### HostedService
 ```
 // Add Hangfire services. UseHangfireInMemory is config in appsetting.json
 if (UseHangfireInMemory)
@@ -97,22 +96,10 @@ else
 ```
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapControllers();
-
     app.UseHangfireDashboard("/hangfire", new DashboardOptions
     {
         Authorization = new[] { new HangfireDashboardAuthorizationFilter() }
     });
-
-    endpoints.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}"
-    );
-
-    endpoints.MapControllerRoute(
-        name: "api",
-        pattern: "{controller}/{id?}"
-    );
 });
 ```
 
