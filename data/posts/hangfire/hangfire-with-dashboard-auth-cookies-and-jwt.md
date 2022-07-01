@@ -67,8 +67,146 @@ Job will execute for a specified time
 ```
 
 ## Dependency Injection
+### HostedService
+```
+// Add Hangfire services. UseHangfireInMemory is config in appsetting.json
+if (UseHangfireInMemory)
+{
+  services.AddHangfire(configuration =>
+  {
+      configuration.UseMemoryStorage();
+  });
+}
+else
+{
+  services.AddHangfire(configuration => configuration
+    .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+    .UseSimpleAssemblyNameTypeSerializer()
+    .UseRecommendedSerializerSettings()
+    .UseSqlServerStorage(AppSettings.Instance.HangfireConnectionString, new SqlServerStorageOptions
+    {
+      CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+      SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+      QueuePollInterval = TimeSpan.Zero,
+      UseRecommendedIsolationLevel = true,
+      DisableGlobalLocks = true
+    }));
+}
+```
+
+```
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+
+    app.UseHangfireDashboard("/hangfire", new DashboardOptions
+    {
+        Authorization = new[] { new HangfireDashboardAuthorizationFilter() }
+    });
+
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}"
+    );
+
+    endpoints.MapControllerRoute(
+        name: "api",
+        pattern: "{controller}/{id?}"
+    );
+});
+```
 
 ## Hangfire Dashboard and Authen
+```
+public static IServiceCollection AddJwtAuthentication(this IServiceCollection services, IConfiguration config)
+{
+  services
+  .AddAuthentication(options =>
+  {
+    options.DefaultScheme = "Bearer,Cookies";
+    options.DefaultChallengeScheme = "Bearer,Cookies";
+  })
+  .AddJwtBearer("Bearer", o =>
+  {
+    //o.SaveToken = true;
+    o.TokenValidationParameters = new TokenValidationParameters
+    {
+      IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AppSettings.Configs["JwtSettings:Key"])),
+      ValidateIssuerSigningKey = true,
+      ValidateIssuer = false,
+      ValidateLifetime = true,
+      ValidateAudience = false,
+      ClockSkew = TimeSpan.FromMinutes(15)
+    };
+
+    o.Events = new JwtBearerEvents
+    {
+      OnTokenValidated = async ctx =>
+      {
+        /* validate token here*/
+      },
+      OnAuthenticationFailed = async ctx =>
+      {
+          logger.LogError($"Authen failed: {ctx.Exception}");
+      }
+    };
+  })
+  .AddCookie("Cookies", options =>
+  {
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(int.Parse(AppSettings.Configs["JwtSettings:AccessExpireMinutes"]));
+    options.SlidingExpiration = true;
+  })
+  .AddPolicyScheme("Bearer,Cookies", "Bearer,Cookies", options =>
+  {
+    // runs on each request
+    options.ForwardDefaultSelector = context =>
+    {
+      // filter by auth type
+      string authorization = context.Request.Headers[HeaderNames.Authorization];
+      if (!string.IsNullOrEmpty(authorization) && authorization.StartsWith("Bearer "))
+          return "Bearer";
+
+      // otherwise always check for cookie auth
+      return "Cookies";
+    };
+  });
+
+  return services;
+}
+
+```
+
+```
+public class HangfireDashboardAuthorizationFilter : IDashboardAuthorizationFilter
+{
+  private const string HangfirePermissionRole = "Hangfire";
+
+  public bool Authorize(DashboardContext context)
+  {
+    var httpContext = context.GetHttpContext();
+    var isAuthenticated = httpContext.User.Identity.IsAuthenticated;
+
+    if (isAuthenticated)
+    {
+        var identity = (ClaimsIdentity)httpContext.User.Identity;
+        var claim = identity.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Permission);
+
+        if (claim != null && claim.Value.Split(",").Contains(HangfirePermissionRole))
+        {
+            return isAuthenticated;
+        }
+        else
+        {
+            httpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            httpContext.Response.ContentType = "Oops! Unauthorized!";
+            return false;
+        }
+    }
+
+    return isAuthenticated;
+  }
+}
+```
 
 ## Background Methods
 
