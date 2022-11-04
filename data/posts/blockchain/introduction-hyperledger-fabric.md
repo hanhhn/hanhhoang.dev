@@ -98,3 +98,7 @@ Chốt lại là **Hyperledger Fabric** có tất cả các yêu cầu mà một
 - Privacy and Confidentiality
 - Pluggable Consensus
 - Performance and Scalability
+
+## Reference
+
+[https://hyperledger-fabric.readthedocs.io/en/latest/whatis.html](https://hyperledger-fabric.readthedocs.io/en/latest/whatis.html)
