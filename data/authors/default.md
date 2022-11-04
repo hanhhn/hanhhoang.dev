@@ -11,4 +11,4 @@ github: https://github.com/hanhhn
 
 Hello,
 
-My name is Hanh Hoang, I'm software engrineer =)). I could go back to the past, I learned immediately blockchain. Blockchain is obviously future
+My name is Hanh Hoang, I'm software engrineer =))
