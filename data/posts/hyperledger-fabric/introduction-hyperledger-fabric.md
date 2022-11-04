@@ -16,7 +16,7 @@ Thật ra có rất nhiều nguồn định nghĩa về blockchain, nhưng chún
 
 `Lưu ý: ` Blockchain là công nghệ đằng sau của cryptocurrency, blockchain is not cryptocurrency
 
-Blokchain 2 được chia làm 2 loại, 2 loại này giống nhau hoàn toàn về công nghệ nhưng khác nhau về permission. Tìm hiểu thêm về 2 loại blockchain này ![tại đây](https://www.investopedia.com/terms/p/permissioned-blockchains.asp)
+Blokchain 2 được chia làm 2 loại, 2 loại này giống nhau hoàn toàn về công nghệ nhưng khác nhau về permission. Tìm hiểu thêm về 2 loại blockchain này [tại đây](https://www.investopedia.com/terms/p/permissioned-blockchains.asp)
 
 ```
 - Permissioned blockchain (Private blockchain): Giới hạn truy cập, cần phải identity và có permission
@@ -25,7 +25,7 @@ Blokchain 2 được chia làm 2 loại, 2 loại này giống nhau hoàn toàn 
 
 Những network bạn thấy hiện nay như bitcoin, ethereum, BNB chain đều là *Permissionless blockchain*. Những chain này dc public và có sự đóng góp đáng kể bởi cộng đồng. Còn *Permissioned blockchain* phù hợp với doanh nghiệp các tổ chức tài chính vì cần phải identity và has permission mới có thể truy cập
 
-
+Trong phần này, cùng tìm hiểu **Hyperledger Fabric** với mình. Hyperledger Fabric là Permissioned blockchain
 
 ## Hyperledger Fabric
 
