@@ -62,4 +62,4 @@ _Some features of a Fabric ledger:_
 
 ## Reference
 
-![https://hyperledger-fabric.readthedocs.io/en/latest/fabric_model.html](https://hyperledger-fabric.readthedocs.io/en/latest/fabric_model.html)
+[https://hyperledger-fabric.readthedocs.io/en/latest/fabric_model.html](https://hyperledger-fabric.readthedocs.io/en/latest/fabric_model.html)

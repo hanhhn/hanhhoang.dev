@@ -86,4 +86,4 @@ Tìm hiểu chi tiết sau, phần này khó
 
 ## Reference
 
-[https://hyperledger-fabric.readthedocs.io/en/latest/blockchain.html](https://hyperledger-fabric.readthedocs.io/en/latest/blockchain.html)
+![https://hyperledger-fabric.readthedocs.io/en/latest/blockchain.html](https://hyperledger-fabric.readthedocs.io/en/latest/blockchain.html)
