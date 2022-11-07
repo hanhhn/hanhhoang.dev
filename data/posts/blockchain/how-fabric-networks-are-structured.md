@@ -22,9 +22,28 @@ Trong topic này, chúng ta sẽ tham khảo cả **network** & **channel**.
 
 ## The sample network
 
+![The sample network](https://hyperledger-fabric.readthedocs.io/en/latest/_images/network.diagram.1.png)
+
+Có 3 tổ chức R0, R1, R2 quyết định khởi chạy 1 network. Nextwork này có cấu hình là CC1. Những definition, policies, roles của mỗi tổ chức đều dc định nghĩa, xác định trên channel
+
+Trên channel C1, 2 tổ chức R1 R2 tham gia ngang hàng có tên là P1 P2. Trong khi R0 sỡ hữu O, O là the ordering service of channel. Tất những node đều sẽ có 1 bản copy legder (L1) của channel, L1 là nơi transactions được recorded. Lưu ý rằng bản copy của ledger giữ bởi The ordering service và nó ko bao gồm state database. R1 R2 cũng sẽ tương tác với channel thông qua ứng dụng A1 A2 mà chúng sở hữu. Cả 3 tổ chức này có Certificate Authority những chứng chỉ này đã được tạo ra là cách chứng chỉ cần thiết cho các nodes, admins, organizations definitions, and applications mà chúng sở hữu
+
 ## Creating the network
 
+![Creating the network](https://hyperledger-fabric.readthedocs.io/en/latest/_images/network.diagram.2.png)
+
+Bước đầu tiên để tạo 1 network or 1 channel là agree và sau đó define cấu hình của nó.
+
+The channel configuration CC1 đã dc đồng ý bởi organizations R1, R2 và RO và được bao gồm trong 1 block được biết như là “configuration block” nó thường được tạo bở `configtxgen` tool từ 1 file yaml `configtx.yaml`. Mặc dù những channel này có khả năng tạo bởi 1 organization và sau đó mời những organizations khác (tìm hiểu sau - mình cũng chưa hiểu lắm)
+
+Khi một configuration block tồn tại, một channel có thể cho là **tồn tại 1 cách hợp lý (logically exist)**, mặc dù không components được tham gia vào nó (về mặt physically). Cái configuration block này chứa 1 bản ghi của những organizations có thể join components và tương tác với channel, như là những chính sách nó define structure for chách quyết định đưa ra như thế nào vào kết quả cụ thể đạt dc.
+
+Định danh của admin phải dc tạo bởi Certificate Authority (CA) có liên kết với mỗi tổ chức. Organizations R1, R2, and R0 have had their certifications and organization definition created by CA1, CA2, and CA0, respectively. For information about how to create a CA, check out Planning for a CA. After the CA has been created, check out Registering and enrolling identities with a CA for information about how to define an organization and create identities for admins and nodes.
+
 ### Certificate Authorities
+
+- Certificate Authorities play a key role in the network because they dispense X.509 certificates
+- Certificates issued by CAs can also be used to sign transactions to indicate that an organization endorses the transaction result
 
 ## Join nodes to the channel
 
