@@ -6,11 +6,9 @@ draft: false
 summary: 'This section outlines the key design features woven into Hyperledger Fabric that fulfill its promise of a comprehensive, yet customizable, enterprise blockchain solution'
 ---
 
-## Hyperledger Fabric Model
-
 Trong post này chúng ta sẽ nói về những thành phấn chính để tạo nên **Hyperledger Fabric**
 
-### Assets
+## Assets
 
 > Assets — Asset definitions enable the exchange of almost anything with monetary value over the network, from whole foods to antique cars to currency futures.
 
@@ -18,13 +16,13 @@ Assets được định nghĩa cho phép trao đổi hầu như toàn bộ nhữ
 
 Asset được đại diện trong Hyperledger Fabric như là 1 collection của cặp key-value, với state thay đổi được ghi như là transactions trên 1 channel ledger. Assets có thể dc đại diện bởi binary or json
 
-### Chaincode
+## Chaincode
 
 > Chaincode — Chaincode execution is partitioned from transaction ordering, limiting the required levels of trust and verification across node types, and optimizing network scalability and performance.
 
 Chaincode is phần mềm định nghĩa 1 or nhiều tài sản, và là transaction instructions cho chỉnh sửa assets. Nói cách khác, chaincode là business logic. Chaincode thuân theo rule đọc or thay đổi key-value pairs or những state khác của database. Chiancode functions thực thi dựa trên state database hiện tại của ledger và được khỏi tạo thông qua một số transaction được xuất. Chiancode execution results trong tập key-value pairs có thể submited đến network và applied đến ledger on tất các node ngang hàng
 
-### Ledger Features
+## Ledger Features
 
 > Ledger Features — The immutable, shared ledger encodes the entire transaction history for each channel, and includes SQL-like query capability for efficient auditing and dispute resolution.
 
@@ -48,15 +46,15 @@ _Some features of a Fabric ledger:_
 
 `Lưu ý:` có một vài câu ko dịch sang tiếng việt dc vì dịch sang rất khó hiểu, cũng chả biết dịch sao
 
-### Privacy
+## Privacy
 
 > Privacy — Channels and private data collections enable private and confidential multi-lateral transactions that are usually required by competing businesses and regulated industries that exchange assets on a common network.
 
-### Security & Membership Services
+## Security & Membership Services
 
 > Security & Membership Services — Permissioned membership provides a trusted blockchain network, where participants know that all transactions can be detected and traced by authorized regulators and auditors.
 
-### Consensus
+## Consensus
 
 > Consensus — A unique approach to consensus enables the flexibility and scalability needed for the enterprise.
 
